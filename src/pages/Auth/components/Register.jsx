@@ -1,4 +1,4 @@
-function Register() {
+function Register({ setCheckAuth }) {
   return (
     <div id="Register">
       <form action="" method="POST" className="form" id="form-1">
@@ -15,21 +15,7 @@ function Register() {
             id="fullname"
             name="fullname"
             type="text"
-            placeholder="VD: Linh Ka"
-            className="form-control"
-          />
-          <span className="form-message"></span>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="text"
-            placeholder="VD: email@domain.com"
+            placeholder="VD:cuong123"
             className="form-control"
           />
           <span className="form-message"></span>
@@ -64,7 +50,12 @@ function Register() {
         </div>
 
         <button className="form-submit">Đăng ký</button>
-        <span className="form-transfer">Đăng nhập</span>
+        <span
+          className="form-transfer"
+          onClick={() => setCheckAuth("Đăng Nhập")}
+        >
+          Đăng nhập
+        </span>
       </form>
     </div>
   );

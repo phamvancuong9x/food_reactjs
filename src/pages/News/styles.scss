@@ -2,6 +2,9 @@
 .News__page__css {
   color: #000;
 }
+.grid {
+  position: relative;
+}
 .theme-background {
   padding: 90px 0;
   background: url("https://api.luxwebsite.net/cuong_image/food_image/theme2.jpg");
@@ -59,6 +62,7 @@
 }
 .blog-category__item--boder:hover {
   background-color: var(--text-color);
+  color: #fff;
 }
 .blog-category__item--boder:hover a {
   color: #fff;

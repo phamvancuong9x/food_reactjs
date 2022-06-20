@@ -1888,7 +1888,9 @@ footer > .row {
   opacity: 1;
   transition: 0.3s ease-out;
 }
-
+.footer_copyright {
+  font-size: 1.4rem;
+}
 .footer__icon-item a:hover + i {
   top: 0;
   opacity: 1;

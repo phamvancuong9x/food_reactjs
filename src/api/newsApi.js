@@ -1,16 +1,9 @@
 import axiosClient from "./axiosClient";
 
 const newApi = {
-  async getAll(token1, token2) {
-    const url1 = "/news";
-    const url2 =
-      "/categoryProduct?isSale=false&typeProduct=vest&_limit=4&_page=2";
-    const newsList = await axiosClient.get(url1, token1);
-    const productList = await axiosClient.get(url2, token2);
-    return {
-      newsList,
-      productList,
-    };
+  getAll(params) {
+    const url = "/news_moc_food";
+    return axiosClient.get(url, { params });
   },
   get(params) {
     const url = "/news";

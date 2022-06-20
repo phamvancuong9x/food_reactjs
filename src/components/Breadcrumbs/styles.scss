@@ -22,13 +22,29 @@
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(0, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url(https://api.luxwebsite.net/cuong_image/food_image/theme2.jpg);
+    url(https://api.luxwebsite.net/cuong_image/food_image/theme3.jpg);
   width: 100%;
   height: 247px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   //   backdrop-filter: blue(100px);
+}
+.breadcrumbs__content-product {
+  background-image: linear-gradient(0, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(https://api.luxwebsite.net/cuong_image/food_image/theme2.jpg);
+}
+.breadcrumbs__content-news {
+  background-image: linear-gradient(0, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(https://api.luxwebsite.net/cuong_image/food_image/theme1.jpg);
+}
+.breadcrumbs__content-auth {
+  background-image: linear-gradient(0, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(https://api.luxwebsite.net/cuong_image/food_image/theme3.jpg);
+}
+.breadcrumbs__content-cart {
+  background-image: linear-gradient(0, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(https://api.luxwebsite.net/cuong_image/food_image/theme4.jpg);
 }
 .breadcrumbs__content-title {
   color: #fff;

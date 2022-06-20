@@ -1,6 +1,6 @@
 import SignInGoogleFaceBook from "./SignInGoogleFacebook";
 
-function Login({ switchPage }) {
+function Login({ switchPage, setCheckAuth }) {
   return (
     <div id="login">
       <form action="" method="POST" className="form" id="form-2">
@@ -38,7 +38,9 @@ function Login({ switchPage }) {
         </div>
 
         <button className="form-submit">Đăng nhập</button>
-        <span className="form-transfer">Đăng ký</span>
+        <span className="form-transfer" onClick={() => setCheckAuth("Đăng Kí")}>
+          Đăng kí
+        </span>
         <div
           style={{
             margin: "20px 0 10px",
@@ -47,7 +49,7 @@ function Login({ switchPage }) {
             fontWeight: "500",
           }}
         >
-          Hoặc đăng nhập bằng{" "}
+          Hoặc đăng nhập bằng
         </div>
         <SignInGoogleFaceBook switchPage={switchPage} />
       </form>

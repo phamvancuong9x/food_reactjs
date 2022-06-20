@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
 
-function Breadcrumbs({ title }) {
+function Breadcrumbs({ title, className }) {
   return (
     <div className="breadcrumbs">
       <div className="breadcrumbs__linkPage">
@@ -15,7 +15,7 @@ function Breadcrumbs({ title }) {
           <span></span>
         </div>
       </div>
-      <div className="breadcrumbs__content">
+      <div className={`breadcrumbs__content ${className}`}>
         <h3 className="breadcrumbs__content-title">{title}</h3>
       </div>
     </div>
