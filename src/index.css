@@ -62,8 +62,11 @@ html {
 }
 body {
   color: #333;
-  background-color: #fdfaf5;
+  /* background-color: #fdfaf5; */
   margin: 0;
+}
+footer {
+  background-color: #fdfaf5;
 }
 ul,
 li {

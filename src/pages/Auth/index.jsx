@@ -1,50 +1,42 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Error, Success } from "../../components/Alert";
+import { useRef, useState } from "react";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Login from "./components/Login";
-import Register from "./components/Register";
 import "./styles.scss";
 
 function Auth() {
-  const [checkAuth, setCheckAuth] = useState("Đăng Nhập");
-  const [checkRegister, setCheckRegister] = useState(false);
-  const [checkLogin, setCheckLogin] = useState(false);
   const switchPageRef = useRef();
   switchPageRef.current = sessionStorage.getItem("switchPage") || "null";
   const [switchPage, setSwitchPage] = useState(switchPageRef.current);
-  useEffect(() => {
-    const id = setTimeout(() => {
-      setCheckRegister(false);
-      setCheckLogin(false);
-    }, 3000);
-    return () => {
-      clearTimeout(id);
-    };
-  }, [checkRegister, checkLogin]);
 
   return (
     <>
-      <Breadcrumbs title={checkAuth} />
-      {checkAuth === "Đăng Nhập" && (
-        <Login
-          setCheckAuth={setCheckAuth}
-          setCheckLogin={setCheckLogin}
-          checkLogin={checkLogin}
-          switchPage={switchPage}
-        />
-      )}
-
-      {checkAuth === "Đăng Kí" && (
-        <Register
-          setCheckAuth={setCheckAuth}
-          setCheckRegister={setCheckRegister}
-        />
-      )}
-      <div className={checkRegister ? "alert active-alert" : "alert"}>
-        <Success text="Đăng kí thành công !" />
-      </div>
-      <div className={checkLogin ? "alert active-alert" : "alert"}>
-        <Error text="Đăng nhập thất bại  !" />
+      <Breadcrumbs title="TÀI KHOẢN" />
+      <div className="main">
+        <div className="grid wide">
+          <div className="row">
+            <div className="col l-6">
+              <Login />
+            </div>
+            <div className="col l-6 c-0">
+              <div className="login-banner">
+                <img
+                  src="https://api.luxwebsite.net/cuong_image/food_image/login1.jpg"
+                  alt=""
+                  className="login-img"
+                />
+                <div className="login-banner__text">
+                  <span>Đón mừng giáng sinh</span>
+                  <span>Ding ngay quà khủng</span>
+                </div>
+                <div className="login-sale">
+                  <span>-50%</span>
+                </div>
+                <span className="login-border1"></span>
+                <span className="login-border2"></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

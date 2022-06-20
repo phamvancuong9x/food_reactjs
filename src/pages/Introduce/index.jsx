@@ -6,7 +6,7 @@ function IntroduceContent() {
     <div className="grid wide">
       <div className="row">
         <div className="col l-12">
-          <div className="page__title">GIỚI THIỆU</div>
+          <div className="page__title">Giới thiệu</div>
           <div className="page__content">
             <p>
               Đắm mình trong không gian cổ kính của Hà Nội, bạn không những được
@@ -47,7 +47,7 @@ function IntroduceContent() {
 function Introduce() {
   return (
     <>
-      <Breadcrumbs title="Giới thiệu" />
+      <Breadcrumbs title="GIỚI THIỆU" />
       <IntroduceContent />
     </>
   );
