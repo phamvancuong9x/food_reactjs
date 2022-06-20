@@ -1,0 +1,30 @@
+.CategoryProduct_page_css {
+  //vi trí css
+  color: #000;
+}
+
+#category-products-list {
+  min-height: 70vh;
+}
+.category-main nav {
+  justify-content: center;
+  box-shadow: none;
+  margin-bottom: 5px;
+}
+
+.category-main {
+  min-height: 70vh;
+}
+.breadcrumbs__linkPage {
+  display: flex;
+  align-items: center;
+}
+.breadcrumbs__linkPage-container {
+  line-height: 24px;
+}
+.breadcrumbs__linkPage-container span:first-child {
+  cursor: pointer;
+}
+.breadcrumbs__linkPage-container span:nth-child(2) {
+  font-weight: 500;
+}

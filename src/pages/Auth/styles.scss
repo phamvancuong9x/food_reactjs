@@ -1,0 +1,39 @@
+// Auth page css
+.Auth__page__css {
+  color: #000;
+}
+.firebaseui-info-bar-message {
+  display: none;
+}
+
+label {
+  display: block;
+}
+.breadcrumbs__linkPage-container span:nth-child(2) {
+  font-weight: 500;
+}
+.link-home-input {
+  width: 100%;
+}
+.displayBlock {
+  display: block;
+}
+.displayNone {
+  display: none;
+}
+
+// firebase
+.firebaseui-idp-list {
+  display: flex;
+  margin: 0 !important;
+}
+.firebaseui-idp-button {
+  width: 175px;
+  display: inline-block;
+}
+.firebaseui-card-content {
+  padding: 0 !important;
+}
+.firebaseui-list-item:first-child {
+  margin-right: 15px;
+}
