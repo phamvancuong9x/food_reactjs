@@ -1,16 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ProductItem1({ product }) {
   return (
     <div className="selling__product-box">
       <div className="selling__product-image">
-        <a href="/san-pham-spaghetti.html" className="selling__product-link">
+        <Link
+          to={`/detail-product/${product.id}`}
+          className="selling__product-link"
+        >
           <img
             src={product.imageProduct[0]}
             alt=""
             className="selling__product-img"
           />
-        </a>
+        </Link>
       </div>
       <div className="selling__product-content">
         <a href="/san-pham-spaghetti.html" className="selling__product-title">

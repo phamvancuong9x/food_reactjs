@@ -6,7 +6,7 @@ function ProductItem({ product }) {
     <div className="product l-4 c-6">
       <div className="product__preview">
         <Link
-          to={`/category-product/${product.id}`}
+          to={`/detail-product/${product.id}`}
           className="product__preview-link"
         >
           <img
