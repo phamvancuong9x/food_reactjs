@@ -5,7 +5,7 @@ import CategoryRight from "./CategoryRight";
 
 function CategoryHome() {
   const [productList, setProductList] = useState();
-  console.log(productList);
+
   useEffect(() => {
     (async () => {
       const listProduct = await categoryApi.getAll();

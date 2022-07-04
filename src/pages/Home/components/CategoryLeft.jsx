@@ -15,6 +15,11 @@ function CategoryLeft({ productList }) {
             <ul className="colection__content-list">
               <li className="colection__content-item">
                 <a href="#" className="colection__content-link">
+                  Tất cả sản phẩm
+                </a>
+              </li>
+              <li className="colection__content-item">
+                <a href="#" className="colection__content-link">
                   Sản phẩm mới
                 </a>
               </li>
@@ -26,11 +31,6 @@ function CategoryLeft({ productList }) {
               <li className="colection__content-item">
                 <a href="#" className="colection__content-link">
                   Sản phẩm khuyến mãi
-                </a>
-              </li>
-              <li className="colection__content-item">
-                <a href="#" className="colection__content-link">
-                  Sản phẩm bán chạy
                 </a>
               </li>
             </ul>

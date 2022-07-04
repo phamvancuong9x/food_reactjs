@@ -8,7 +8,6 @@ import "./styles.scss";
 
 function HomePage() {
   const [slider, setSlider] = useState([]);
-  console.log(slider);
   useEffect(() => {
     (async () => {
       const sliderList = await homeApi.getAll();

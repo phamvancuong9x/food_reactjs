@@ -17,9 +17,12 @@ function ProductItem1({ product }) {
         </Link>
       </div>
       <div className="selling__product-content">
-        <a href="/san-pham-spaghetti.html" className="selling__product-title">
+        <Link
+          to={`/detail-product/${product.id}`}
+          className="selling__product-title"
+        >
           {product.name_product}
-        </a>
+        </Link>
         <div className="selling__product-price-box">
           <span className="selling__product-price">
             {product.price_product}

@@ -77,8 +77,10 @@ section.detailProduct {
   object-fit: cover;
   border: 1px solid #ebebeb;
   margin-right: 10px;
+  display: inline;
 }
-.detail-small-img:hover {
+.detail-small-img:hover,
+.detail-small-img-active {
   border: 1px solid var(--main-color);
 }
 .infor {
