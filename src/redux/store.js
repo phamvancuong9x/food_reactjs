@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import addToCartSlice from "./slice/addToCartSlice";
+import alertSlice from "./slice/alertSlice";
 import authSlice from "./slice/authSlice";
 import cartSlice from "./slice/cartSlice";
 import infoShipSlice from "./slice/infoShipSlice";
@@ -12,6 +13,7 @@ const store = configureStore({
     users: userSlice.reducer,
     infoShips: infoShipSlice.reducer,
     Cart: cartSlice.reducer,
+    alert: alertSlice.reducer,
   },
 });
 export default store;

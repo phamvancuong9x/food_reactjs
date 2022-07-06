@@ -1,21 +1,55 @@
-import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 import categoryApi from "../../api/categoryApi";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import { checkProductCart } from "../../components/function/checkProductCart";
 import Loading from "../../components/Loading";
+import addToCartSlice from "../../redux/slice/addToCartSlice";
 import NotFound from "../NotFound";
+import BtnChangeQuantity from "./components/BtnChangeQuantity";
 import DetailProductDescribe from "./components/DetailProductDescribe";
 import DetailProductImage from "./components/DetailProductImage";
-
 import "./styles.scss";
+import { useSelector } from "react-redux";
+import { addQuantityProductCart } from "../../components/function/addQuanityProductCart";
+import alertSlice from "../../redux/slice/alertSlice";
 
 function DetailProduct() {
   const params = useParams();
+  const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState();
   const [isPage, setIsPage] = useState(true);
+  const cartProductArray = useSelector((state) => state.add_cart);
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    // if (loadingBtn) return;
+    const productInfo = {
+      id: product.id,
+      nameProduct: product.name_product,
+      image: product.imageProduct[1],
+      price_product: product.price_product,
+      priceNumber: product.priceNumber,
+      quantity,
+    };
+    const action = addToCartSlice.actions.ADD_TO_CART(productInfo);
+    dispatch(action);
+    let newCartProduct;
+    if (checkProductCart(cartProductArray, productInfo)) {
+      newCartProduct = addQuantityProductCart(cartProductArray, productInfo);
+    } else {
+      newCartProduct = [...cartProductArray, productInfo];
+    }
 
+    localStorage.setItem("cart", JSON.stringify(newCartProduct));
+    dispatch(
+      alertSlice.actions.changeAlert({
+        showAlert: true,
+        alertContent: "Thêm vào giỏ hàng thành công !",
+      })
+    );
+  };
   useEffect(() => {
     setLoading(true);
     (async () => {
@@ -31,6 +65,7 @@ function DetailProduct() {
       }
     })();
   }, [params.idProduct]);
+
   return (
     <>
       {isPage ? (
@@ -41,16 +76,18 @@ function DetailProduct() {
             <div className="grid wide">
               <div id="10" className="chi-tiet-sp">
                 <div className="row">
-                  <div className="col l-6">
+                  <div className="col-12 l-6">
                     {product && (
                       <DetailProductImage imageList={product?.imageProduct} />
                     )}
                   </div>
-                  <div className="col l-6">
+                  <div className="col-12 l-6">
                     <div className="infor">
-                      <h1 className="infor-title">Bánh mì bơ tỏi</h1>
+                      <h1 className="infor-title">{product?.name_product}</h1>
                       <div className="infor__price-box">
-                        <span className="price-product">70000đ</span>
+                        <span className="price-product">
+                          {product?.price_product}
+                        </span>
                         <span className="price-sale"></span>
                       </div>
                       <div className="price-summary">
@@ -63,32 +100,26 @@ function DetailProduct() {
                       </div>
                       <form action="" className="price-form">
                         <div className="price-number">Số lượng:</div>
-                        <div className="price-number-input">
-                          <button
-                            type="button"
-                            className="price-number-btn btn1"
-                          >
-                            -
-                          </button>
-                          <input
-                            id="number-quality"
-                            type="text"
-                            maxLength="3"
-                            value="1"
-                            className="price-number-quality"
-                            onChange={() => {}}
-                          />
-                          <button
-                            type="button"
-                            className="price-number-btn btn2"
-                          >
-                            +
-                          </button>
-                        </div>
+                        <BtnChangeQuantity
+                          quantity={quantity}
+                          setQuantity={setQuantity}
+                        />
                       </form>
                       <div className="price-buy">
+                        <button
+                          type="submit"
+                          className="price-buy-btn order"
+                          style={{ marginRight: "15px" }}
+                          onClick={handleAddToCart}
+                        >
+                          <span className="price-buy-text">
+                            Thêm vào giỏ hàng
+                          </span>
+                        </button>
                         <button type="submit" className="price-buy-btn order">
-                          <span className="price-buy-text">mua hàng</span>
+                          <Link to={"/cart"} className="price-buy-text">
+                            Mua ngay
+                          </Link>
                         </button>
                       </div>
                     </div>

@@ -15,21 +15,14 @@ const addToCartSlice = createSlice({
     },
     CHANGE_QUANTITY_PRODUCT_CART: (state, action) => {
       return state.map((product) => {
-        if (
-          product.id === action.payload.id &&
-          product.size === action.payload.size
-        )
+        if (product.id === action.payload.id)
           return { ...product, ...action.payload };
         return product;
       });
     },
     DELETE_PRODUCT: (state, action) => {
       return state.filter((product) => {
-        return (
-          product.id !== action.payload.id ||
-          (product.id === action.payload.id &&
-            product.size !== action.payload.size)
-        );
+        return product.id !== action.payload.id;
       });
     },
     DELETE_All_PRODUCT: (state, action) => {

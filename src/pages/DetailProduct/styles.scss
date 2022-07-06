@@ -71,6 +71,7 @@ section.detailProduct {
 }
 .detail-small {
   margin-top: 30px;
+  margin-left: 12px;
 }
 .detail-small-img {
   width: 120px;
@@ -300,4 +301,10 @@ section.detailProduct {
 }
 .modal-link:hover {
   background-color: var(--main-color);
+}
+@media (max-width: 1023px) {
+  .infor {
+    margin-left: 15px;
+    margin-top: 30px;
+  }
 }

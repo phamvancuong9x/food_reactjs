@@ -7,11 +7,17 @@ import "./styles.scss";
 
 function CategoryProduct() {
   const [productList, setProductList] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
-      const listProduct = await categoryApi.getAll();
-      setProductList(listProduct);
+      try {
+        const listProduct = await categoryApi.getAll();
+        setProductList(listProduct);
+        setLoading(false);
+      } catch (error) {
+        console.log(error.name);
+      }
     })();
   }, []);
   return (
@@ -25,11 +31,13 @@ function CategoryProduct() {
         <div className="slider-home-main">
           <div className="grid wide">
             <div className="row">
-              <CategoryLeft productList={productList} />
+              <CategoryLeft productList={productList} loading={loading} />
               <div className="l-9 c-12">
                 <ProductList
                   productList={productList}
                   title="tất cả sản phẩm"
+                  loading={loading}
+                  quantity={9}
                 />
               </div>
             </div>

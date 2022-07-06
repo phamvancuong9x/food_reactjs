@@ -5,11 +5,16 @@ import CategoryRight from "./CategoryRight";
 
 function CategoryHome() {
   const [productList, setProductList] = useState();
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     (async () => {
-      const listProduct = await categoryApi.getAll();
-      setProductList(listProduct);
+      try {
+        const listProduct = await categoryApi.getAll();
+        setProductList(listProduct);
+        // setLoading(false);
+      } catch (error) {
+        console.log(error.name);
+      }
     })();
   }, []);
 
@@ -17,8 +22,8 @@ function CategoryHome() {
     <section className="body">
       <div className="grid wide">
         <div className="row">
-          <CategoryLeft productList={productList} />
-          <CategoryRight productList={productList} />
+          <CategoryLeft productList={productList} loading={loading} />
+          <CategoryRight productList={productList} loading={loading} />
         </div>
       </div>
     </section>

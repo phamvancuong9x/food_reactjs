@@ -1,10 +1,14 @@
 import { useSelector } from "react-redux";
 import { Success } from "../../components/Alert";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import CartContent from "./components/CartContent";
+import CartEmpty from "./components/CartEmpty";
+import { stringToNumberMoney, totalPrice } from "./components/constant";
 import "./styles.scss";
 
 function Cart() {
   const ProductCartList = useSelector((state) => state.add_cart);
+  const total_price = stringToNumberMoney(totalPrice(ProductCartList));
   const showNotifyDeleteProduct = useSelector(
     (state) => state.Cart.showNotifyDeleteProduct
   );
@@ -16,12 +20,14 @@ function Cart() {
     <>
       <Breadcrumbs title={"Giỏ hàng"} />
       <div className="container">
-        <h2>Giỏ hàng</h2>
-        {/* {ProductCartList.length === 0 ? (
+        {ProductCartList.length === 0 ? (
           <CartEmpty />
         ) : (
-          <CartContent ProductCartList={ProductCartList} />
-        )} */}
+          <CartContent
+            ProductCartList={ProductCartList}
+            total_price={total_price}
+          />
+        )}
         <div
           className={showNotifyDeleteProduct ? "alert active-alert" : "alert"}
         >

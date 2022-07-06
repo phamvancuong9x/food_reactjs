@@ -7,10 +7,14 @@ import {
   getNewProductList,
 } from "./constant";
 
-function FeaturedProducts({ productList }) {
+function FeaturedProducts({ productList, loading }) {
   return (
     <>
-      <ProductList productList={productList} title={"sản phẩm nổi bật"} />
+      <ProductList
+        productList={productList}
+        title={"sản phẩm nổi bật"}
+        loading={loading}
+      />
       <div className="col-12 c-12">
         <div className="sale-banner" data-aos="fade-up">
           <div className="sale-banner__item">
@@ -35,28 +39,32 @@ function FeaturedProducts({ productList }) {
   );
 }
 
-function NewProducts({ productList }) {
+function NewProducts({ productList, loading }) {
   return (
     <>
-      <ProductList productList={productList} title={"sản phẩm mới"} />
-      <div class="col-6">
-        <div class="sale-banner" data-aos="fade-left">
-          <div class="sale-banner__item">
+      <ProductList
+        productList={productList}
+        title={"sản phẩm mới"}
+        loading={loading}
+      />
+      <div className="col-6">
+        <div className="sale-banner" data-aos="fade-left">
+          <div className="sale-banner__item">
             <img
               src="https://api.luxwebsite.net/cuong_image/food_image/sale-banner2.jpg"
               alt=""
-              class="sale-banner__img"
+              className="sale-banner__img"
             />
           </div>
         </div>
       </div>
-      <div class="col-6">
-        <div class="sale-banner" data-aos="fade-right">
-          <div class="sale-banner__item">
+      <div className="col-6">
+        <div className="sale-banner" data-aos="fade-right">
+          <div className="sale-banner__item">
             <img
               src="https://api.luxwebsite.net/cuong_image/food_image/sale-banner3.jpg"
               alt=""
-              class="sale-banner__img"
+              className="sale-banner__img"
             />
           </div>
         </div>
@@ -65,15 +73,22 @@ function NewProducts({ productList }) {
   );
 }
 
-function CategoryRight({ productList }) {
+function CategoryRight({ productList, loading }) {
   return (
     <div className="col l-9">
       <div className="row">
-        <FeaturedProducts productList={getFeaturedProductsList(productList)} />
-        <NewProducts productList={getNewProductList(productList)} />
+        <FeaturedProducts
+          productList={getFeaturedProductsList(productList)}
+          loading={loading}
+        />
+        <NewProducts
+          productList={getNewProductList(productList)}
+          loading={loading}
+        />
         <ProductList
           productList={getHotProductList(productList)}
           title={"Sản phẩm bán chạy trong tuần"}
+          loading={loading}
         />
       </div>
     </div>

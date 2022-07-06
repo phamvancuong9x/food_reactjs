@@ -1,7 +1,9 @@
 import React from "react";
 import ProductItem from "../ProductItem";
+import { ProductListSkeleton } from "../Skeleton";
 
-function ProductList({ productList, title }) {
+function ProductList({ productList, title, loading, quantity }) {
+  console.log(quantity);
   return (
     <div className="col-12">
       <div className="main-product">
@@ -9,9 +11,11 @@ function ProductList({ productList, title }) {
           <h2 className="colection__title-head product--left">{title}</h2>
         </div>
         <div className="row">
-          {productList?.map((productItem, i) => {
-            return <ProductItem product={productItem} key={i} />;
-          })}
+          {!loading &&
+            productList?.map((productItem, i) => {
+              return <ProductItem product={productItem} key={i} />;
+            })}
+          {loading && <ProductListSkeleton quantity={quantity} />}
         </div>
       </div>
     </div>
