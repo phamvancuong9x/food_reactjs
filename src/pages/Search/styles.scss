@@ -5,3 +5,19 @@
 .search-empty {
   text-align: center;
 }
+.collections__header h2 {
+  text-align: center !important;
+}
+.search-empty {
+  font-size: 24px;
+  margin-top: 24px;
+}
+.featured-products__name,
+.featured-products__price {
+  text-align: center;
+  font-size: 14px;
+}
+
+.featured-products__price {
+  color: var(--text-color);
+}

@@ -11,7 +11,7 @@ function CategoryHome() {
       try {
         const listProduct = await categoryApi.getAll();
         setProductList(listProduct);
-        // setLoading(false);
+        setLoading(false);
       } catch (error) {
         console.log(error.name);
       }

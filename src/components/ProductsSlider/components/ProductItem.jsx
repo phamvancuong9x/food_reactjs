@@ -13,13 +13,14 @@ function ProductItem({ product }) {
           <div className="discount">{product.discount_sale}</div>
         ) : undefined}
       </div>
-      <div className="featured-products__name">{product.name_product}</div>
+
       <div className="featured-products__price">
         {product.price_product}
         {product.initialPrice != "null" ? (
           <span className="initialPrice">{product.initialPrice}</span>
         ) : undefined}
       </div>
+      <div className="featured-products__name">{product.name_product}</div>
     </Link>
   );
 }

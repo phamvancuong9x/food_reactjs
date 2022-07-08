@@ -30,7 +30,7 @@ function Search() {
         setLoadingSearch(false);
       }
     })();
-  }, [filters]);
+  }, [location]);
 
   return (
     <>
@@ -54,9 +54,9 @@ function Search() {
           <div className="row" id="category-products-list">
             {productList.map((product) => {
               return (
-                <div className="col-6 col-sm-4 col-lg-3" key={product.id}>
+                <React.Fragment key={product.id}>
                   <ProductItem product={product} />
-                </div>
+                </React.Fragment>
               );
             })}
           </div>
