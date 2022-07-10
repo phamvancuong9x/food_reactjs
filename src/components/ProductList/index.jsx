@@ -3,7 +3,6 @@ import ProductItem from "../ProductItem";
 import { ProductListSkeleton } from "../Skeleton";
 
 function ProductList({ productList, title, loading, quantity }) {
-  console.log(quantity);
   return (
     <div className="col-12">
       <div className="main-product">

@@ -7,18 +7,10 @@ import SliderText from "./components/SliderText";
 import "./styles.scss";
 
 function HomePage() {
-  const [slider, setSlider] = useState([]);
-  useEffect(() => {
-    (async () => {
-      const sliderList = await homeApi.getAll();
-      setSlider(sliderList);
-    })();
-  }, []);
-
   return (
     <div className="content">
       <div className="slider-home-main">
-        <SliderHome slider={slider} />
+        <SliderHome />
         <SliderText />
       </div>
       <Banner />

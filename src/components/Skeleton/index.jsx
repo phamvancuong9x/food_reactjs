@@ -1,7 +1,6 @@
 import { Skeleton } from "@mui/material";
 import "./styles.scss";
 export function ProductListSkeleton({ quantity = 3 }) {
-  console.log(quantity);
   return Array(quantity)
     .fill(null)
     .map((item, i) => {
