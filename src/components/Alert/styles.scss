@@ -15,7 +15,7 @@
 .alert {
   width: 240px;
   position: fixed;
-  top: 110px;
+  top: 160px;
   right: -240px;
   z-index: 100;
   opacity: 0;
@@ -29,5 +29,10 @@
 .active-alert {
   div {
     font-size: 14px !important;
+  }
+}
+@media (max-width: 568px) {
+  .alert {
+    top: 80px;
   }
 }

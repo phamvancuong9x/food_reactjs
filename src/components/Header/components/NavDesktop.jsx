@@ -1,5 +1,5 @@
 import { memo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import HeaderTop from "./HeaderTop";
 import { HeaderUser } from "./HeaderUser";
 import { SearchInput } from "./SearchInput";
@@ -10,6 +10,7 @@ function NavDesktop({ total }) {
   const handleShowSearch = () => {
     setShowSearch(!showSearch);
   };
+  const location = useLocation();
 
   return (
     <>
@@ -17,16 +18,41 @@ function NavDesktop({ total }) {
       <nav className="nav-desktop">
         <div className="nav__center">
           <ul className="nav__center-list">
-            <li className="nav__center-item">
+            <li
+              className={
+                location.pathname === "/"
+                  ? "nav__center-item nav__center-item_active"
+                  : "nav__center-item"
+              }
+            >
               <Link to="/">Trang chủ</Link>
             </li>
-            <li className="nav__center-item">
+            <li
+              className={
+                location.pathname === "/introduce"
+                  ? "nav__center-item nav__center-item_active"
+                  : "nav__center-item"
+              }
+            >
               <Link to="/introduce">Giới thiệu</Link>
             </li>
-            <li className="nav__center-item">
+            <li
+              className={
+                location.pathname === "/category-product" ||
+                location.pathname.includes("detail-product") === true
+                  ? "nav__center-item nav__center-item_active"
+                  : "nav__center-item"
+              }
+            >
               <Link to={"/category-product"}> Sản phẩm</Link>
             </li>
-            <li className="nav__center-item">
+            <li
+              className={
+                location.pathname === "/news"
+                  ? "nav__center-item nav__center-item_active"
+                  : "nav__center-item"
+              }
+            >
               <Link to="/news">Tin Tức</Link>
             </li>
           </ul>

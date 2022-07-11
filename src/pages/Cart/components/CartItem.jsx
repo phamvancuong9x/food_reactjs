@@ -5,7 +5,6 @@ import { stringToNumberMoney } from "./constant";
 import { QuanTityProduct } from "./QuanTityProduct";
 
 function CartItem({ product }) {
-  const [quantity, setQuantity] = useState(product.quantity);
   return (
     <div id={product.id} className="cart-tbody">
       <div className="cart-tbody__image" style={{ width: "17%" }}>

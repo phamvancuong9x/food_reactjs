@@ -931,6 +931,7 @@ nav {
   margin: 10px 12px;
   position: relative;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 .nav__right-item,
 .nav__search-title,
@@ -956,9 +957,7 @@ span {
 .nav__sub-item p {
   display: inline-block;
 }
-.nav__center-item::after,
-.cart::after,
-.nav__search-title::after,
+
 .nav__sub-item a::after,
 .nav__sub-item p::after,
 .header__user-item span::after,
@@ -999,20 +998,24 @@ span {
 }
 
 /*  */
-.nav__center-item:hover::after,
-.cart:hover::after,
-.user-login:hover::after,
-.nav__search-title:hover::after,
+
 .nav__sub-item:hover a::after,
 .nav__sub-item:hover p::after,
 .header__user-item:hover span::after,
 .breadcrumb__link-home:hover::after,
-.header__user:hover::after,
 .nav-mobile__sub-item p:hover::after,
 .nav-mobile__sub-item a:hover::after {
   width: 100%;
   will-change: width;
 }
+.cart:hover,
+.nav__center-item_active,
+.header__user:hover,
+.nav__search-title:hover,
+.nav__center-item:hover {
+  color: var(--main-color) !important;
+}
+.nav__center-item:hover::after,
 .nav__search:hover:after {
   width: 0;
 }
@@ -1091,7 +1094,7 @@ span {
 }
 
 .nav__link-search {
-  background-color: rgb(239 195 195);
+  background: #c69c6c;
   padding: 6px 15px !important;
   position: absolute;
   top: 50%;
@@ -1106,7 +1109,7 @@ span {
 
 .nav__link-search:hover {
   color: #fff !important;
-  background-color: rgb(237 109 109) !important;
+  background-color: var(--main-color);
 }
 /* cart */
 .cart,
@@ -1462,7 +1465,7 @@ span {
   outline: 1px solid slategrey;
 }
 .menu-bars-container {
-  background: #fab1a0;
+  background: #c69c6c;
   width: 300px;
   height: 100vh;
   position: fixed;
