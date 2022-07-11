@@ -21,6 +21,7 @@ function DetailProduct() {
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState();
   const [isPage, setIsPage] = useState(true);
+  const [tab, setTab] = useState("tab1");
   const cartProductArray = useSelector((state) => state.add_cart);
   const dispatch = useDispatch();
   const handleAddToCart = () => {
@@ -131,30 +132,39 @@ function DetailProduct() {
                   <div className="col l-12">
                     <div className="product-tap">
                       <ul className="tab-list">
-                        <li className="tab-item active" data-target="#menu1">
+                        <li
+                          className={
+                            tab === "tab1" ? "tab-item active" : "tab-item"
+                          }
+                          onClick={() => setTab("tab1")}
+                        >
                           mô tả sản phẩm
                         </li>
-                        <li className="tab-item" data-target="#menu2">
-                          tab tuỳ chỉnh
-                        </li>
-                        <li className="tab-item" data-target="#menu3">
+
+                        <li
+                          className={
+                            tab === "tab2" ? "tab-item active" : "tab-item"
+                          }
+                          onClick={() => setTab("tab2")}
+                        >
                           hướng dẫn mua hàng
                         </li>
                       </ul>
+                      {tab === "tab1" && (
+                        <DetailProductDescribe
+                          imageProduct={product?.imageProduct}
+                          describe_1={product?.describe_1}
+                          describe_2={product?.describe_2}
+                        />
+                      )}
 
-                      <DetailProductDescribe
-                        imageProduct={product?.imageProduct}
-                        describe_1={product?.describe_1}
-                        describe_2={product?.describe_2}
-                      />
-                      <div id="menu2" className="tab-content">
-                        <p className="tab-text not-mg">
-                          Nội dung tùy chỉnh viết ở đây
-                        </p>
-                      </div>
-                      <div id="menu3" className="tab-content">
-                        <p className="tab-text not-mg">Hướng dẫn mua hàng</p>
-                      </div>
+                      {tab === "tab2" && (
+                        <div id="menu2">
+                          <p className="tab-content2">
+                            Hướng dẫn mua hàng đang được cập nhật !
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
