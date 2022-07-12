@@ -5,3 +5,10 @@ export const CategoryProductTypeArray = [
   { typeProduct: "banhngot", nameProduct: "Bánh ngọt" },
   { typeProduct: "pizza", nameProduct: "Pizza" },
 ];
+
+export function getNameProduct(typeProduct, CategoryProductTypeArray) {
+  const categoryItem = CategoryProductTypeArray.filter((item) => {
+    return item.typeProduct === typeProduct;
+  });
+  return categoryItem[0].nameProduct;
+}

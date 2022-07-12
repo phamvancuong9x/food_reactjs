@@ -4,17 +4,20 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import ProductList from "../../components/ProductList";
 import CategoryLeft from "../Home/components/CategoryLeft";
 import CategoryProductType from "./components/CategoryProductType";
+import {
+  CategoryProductTypeArray,
+  getNameProduct,
+} from "./components/constant";
 import "./styles.scss";
 
 function CategoryProduct() {
   const [productList, setProductList] = useState();
   const [typeProduct, setTypeProduct] = useState("allProduct");
-  console.log(typeProduct);
   const [loading, setLoading] = useState(true);
   const params = {
     typeProduct,
   };
-
+  const name_product = getNameProduct(typeProduct, CategoryProductTypeArray);
   useEffect(() => {
     setLoading(true);
     (async () => {
@@ -36,7 +39,7 @@ function CategoryProduct() {
   return (
     <div className="category-main">
       <Breadcrumbs
-        title={"TẤT CẢ SẢN PHẨM"}
+        title={name_product}
         className="breadcrumbs__content-product"
       />
 
@@ -49,7 +52,7 @@ function CategoryProduct() {
               <div className="l-9 c-12">
                 <ProductList
                   productList={productList}
-                  title="tất cả sản phẩm"
+                  title={name_product}
                   loading={loading}
                   quantity={9}
                 />
