@@ -14,6 +14,7 @@ function CategoryProduct() {
   const [productList, setProductList] = useState();
   const [typeProduct, setTypeProduct] = useState("allProduct");
   const [loading, setLoading] = useState(true);
+  const [showSort, setShowSort] = useState(false);
   const params = {
     typeProduct,
   };
@@ -45,16 +46,22 @@ function CategoryProduct() {
 
       <div className="content">
         <div className="slider-home-main">
-          <div className="grid wide">
+          <div className="grid wide" style={{ position: "relative" }}>
             <div className="row">
-              <CategoryProductType setTypeProduct={setTypeProduct} />
+              <CategoryProductType
+                setTypeProduct={setTypeProduct}
+                showSort={showSort}
+                setShowSort={setShowSort}
+              />
 
               <div className="l-9 c-12">
                 <ProductList
+                  setShowSort={setShowSort}
                   productList={productList}
                   title={name_product}
                   loading={loading}
                   quantity={9}
+                  sort={true}
                 />
               </div>
             </div>
