@@ -1,22 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function BlogItem({ blogData }) {
-  console.log(blogData);
   return (
     <div className="myblog" data-aos="fade-up">
       <div className="blog__thumnail">
-        <a href="/tin-tuc-1.html" className="blog__thumnail-link">
+        <Link to="/newDetail" className="blog__thumnail-link">
           <img src={blogData.image} alt="" className="blog__thumnail-img" />
-        </a>
+        </Link>
       </div>
       <div className="myblog__title">
-        <a href="/tin-tuc-1.html" className="myblock__title-link">
+        <Link to="/newDetail" className="myblock__title-link">
           {blogData.name}
-        </a>
+        </Link>
       </div>
       <p className="myblog__title-content">
         {blogData.newDescriber}
-        <a href="/tin-tuc-1.html">[Đọc tiếp]</a>
+        <Link to="/newDetail">[Đọc tiếp]</Link>
       </p>
       <div className="row ">
         <div className="col l-9">

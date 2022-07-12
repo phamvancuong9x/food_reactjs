@@ -5,6 +5,7 @@ import CategoryProduct from "../../pages/CategoryProduct";
 import DetailProduct from "../../pages/DetailProduct";
 import HomePage from "../../pages/Home";
 import Introduce from "../../pages/Introduce";
+import NewDetail from "../../pages/NewDetail";
 import News from "../../pages/News";
 import NotFound from "../../pages/NotFound";
 import Search from "../../pages/Search";
@@ -18,6 +19,7 @@ function Routers() {
         <Route path="/category-product" element={<CategoryProduct />} />
         <Route path="/detail-product/:idProduct" element={<DetailProduct />} />
         <Route path="/news" element={<News />} />
+        <Route path="/newDetail" element={<NewDetail />} />
         <Route path="/login" element={<Auth />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/introduce" element={<Introduce />} />
