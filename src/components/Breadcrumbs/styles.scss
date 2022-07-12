@@ -57,6 +57,9 @@
 .breadcrumbs__linkPage-container > span:first-child:hover {
   color: var(--main-color);
 }
+.breadcrumbs__linkPage-container > span:nth-child(2) {
+  cursor: text !important;
+}
 @media (max-width: 991px) {
   .breadcrumbs__content {
     background-attachment: unset;

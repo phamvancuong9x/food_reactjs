@@ -1,5 +1,5 @@
 import React from "react";
-import ProductItem from "../../../components/ProductItem";
+
 import ProductList from "../../../components/ProductList";
 import {
   getFeaturedProductsList,
@@ -77,14 +77,19 @@ function CategoryRight({ productList, loading }) {
   return (
     <div className="col l-9">
       <div className="row">
+        <div id="outstanding"></div>
         <FeaturedProducts
           productList={getFeaturedProductsList(productList)}
           loading={loading}
         />
+        <div id="new"></div>
+
         <NewProducts
           productList={getNewProductList(productList)}
           loading={loading}
         />
+
+        <div id="selling"></div>
         <ProductList
           productList={getHotProductList(productList)}
           title={"Sản phẩm bán chạy trong tuần"}

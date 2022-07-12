@@ -360,7 +360,7 @@ a {
   font-size: 1.4rem;
   line-height: 1.7;
   color: var(--text-color);
-  padding: 10px 0;
+  padding: 10px;
   transition: 0.3s ease;
   border-bottom: 1px solid #f0ebe2;
 }
@@ -1082,7 +1082,7 @@ span {
 }
 .nav__input:focus {
   cursor: text;
-  border: 1.5px solid rgb(112, 112, 112);
+  border: 1.5px solid var(--main-color);
   background-color: #fff;
 }
 .nav__input:focus + .nav__link-search {

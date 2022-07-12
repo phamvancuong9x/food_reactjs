@@ -2,9 +2,9 @@ import React from "react";
 import ProductItem from "../ProductItem";
 import { ProductListSkeleton } from "../Skeleton";
 
-function ProductList({ productList, title, loading, quantity }) {
+function ProductList({ productList, title, loading, quantity, id }) {
   return (
-    <div className="col-12">
+    <div className="col-12 " id={id}>
       <div className="main-product">
         <div className="colection__title no-bottom">
           <h2 className="colection__title-head product--left">{title}</h2>
